@@ -30,3 +30,83 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+
+
+.header {
+  width: 100%;
+  height: 60px;
+  padding-top: 5px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid white;
+}
+
+
+.nav-item {
+  font-weight: bolder;
+  display: inline;
+  float: right;
+  width:120px;
+  text-align: center;
+  padding-right: 25px;
+}
+
+.header-links{
+  padding-top: 5px;
+  display: block;
+  /*background-color: #7a4195;*/
+  text-decoration: none;
+  color: white;
+}
+
+.header-links:hover{
+  color:red;
+}
+
+
+
+
+
+
+.App{
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+
+body {
+  margin:0;
+  padding: 0;
+  background-color: black;
+}
+
+.Sidebar{
+  border-right:1px solid black;
+  height: auto;
+  width: 200px; 
+  position: fixed;
+  overflow-x: hidden;
+  margin-left: -75px;
+}
+
+.SidebarList{
+  text-align: left;
+  height:auto;
+  width: 100%;;
+}
+
+.SidebarList .row{
+  list-style-type:none;
+  float:left;
+  padding-right:100%;
+  padding-bottom: 10px;
+  font-size: 20px;
+  color:black;
+  border:none;
+  cursor:pointer;
+}
+
+.SidebarList .row:hover{
+color:red;
+cursor: pointer;
+}
