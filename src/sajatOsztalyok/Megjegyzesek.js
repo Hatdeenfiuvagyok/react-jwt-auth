@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { StyleSheet,Text, TextInput, View,TouchableOpacity, FlatList, RefreshControl  } from 'react-native-web';
 import Bevitel from './Bevitel';
 
-const ipcim="172.16.0.110";
+      //172.16.0.110
+      //192.168.1.67
+const ipcim="192.168.1.67";
 
-export default class Komment extends Component {
+export default class Megjegyzesek extends Component {
   constructor(props) {
     super(props);
     this.state = {

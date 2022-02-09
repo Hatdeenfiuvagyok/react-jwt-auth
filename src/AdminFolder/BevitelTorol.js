@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet,Text, TextInput, View,TouchableOpacity } from 'react-native-web';
 
+      //172.16.0.110
 const ipcim="172.16.0.110";
 
-export default class Bevitel extends Component {
+export default class BevitelTorol extends Component {
   constructor(props) {
     super(props);
     this.state = {

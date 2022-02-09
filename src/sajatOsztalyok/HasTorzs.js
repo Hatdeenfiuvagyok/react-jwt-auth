@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {View, Image, FlatList, TouchableOpacity, Text  } from 'react-native-web';
-import Gyakorlatok from '../SidebarGyakorlatok/Gyakorlatok';
+import Gyakorlatok from '../Gyakorlatok/Gyakorlatok';
 
-const ipcim="172.16.0.110";
+      //172.16.0.110
+      //192.168.1.67
+const ipcim="192.168.1.67";
 
 export default class HasTorzs extends Component {
   constructor(props) {

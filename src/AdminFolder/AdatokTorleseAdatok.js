@@ -1,7 +1,7 @@
 import React from 'react';
 import "../App.css";
 
-export const  SidebarAdatok = [
+export const  AdatokTorleseAdatok = [
     {
         title:"Megjegyzések",
         link:"/MegjegyzesTorol"

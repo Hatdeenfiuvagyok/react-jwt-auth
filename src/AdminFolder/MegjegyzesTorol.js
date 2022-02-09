@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet,Text, TextInput, View,TouchableOpacity, FlatList, RefreshControl  } from 'react-native-web';
 import BevitelTorol from './BevitelTorol';
-import Sidebar from '../SidebarTorles/Sidebar';
+import Sidebar from './AdatokTorlese';
 
+      //172.16.0.110
 const ipcim="172.16.0.110";
 
-export default class Komment extends Component {
+export default class MegjegyzesTorol extends Component {
   constructor(props) {
     super(props);
     this.state = {

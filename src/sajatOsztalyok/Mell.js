@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {View, Image, FlatList, TouchableOpacity, Text  } from 'react-native-web';
-import Gyakorlatok from '../SidebarGyakorlatok/Gyakorlatok';
+import Gyakorlatok from '../Gyakorlatok/Gyakorlatok';
 
-const ipcim="172.16.0.110";
+      //172.16.0.110
+      //192.168.1.67
+const ipcim="192.168.1.67";
 
 export default class Mell extends Component {
   constructor(props) {
@@ -64,10 +66,12 @@ this.setState({megnyomva:m})
         onPress={()=>this.kattintas(item.kepek_id)}
         >
 
-        <Image  source={{uri: 'http://'+ipcim+':8080/'+item.kepek}} style={{height:300, width:400, marginBottom:20}} />
+        <Image  source={{uri: 'http://'+ipcim+':8080/'+item.kepek}} style={{height:300, width:400, marginBottom:20, alignSelf:'center'}} />
           
         </TouchableOpacity>
-
+        <Text style={{paddingLeft:150,paddingRight:150,paddingTop:10, paddingBottom:10, fontSize: 20, textAlign:'justify', alignSelf:'center'}}>
+          {item.kepek_leiras}
+        </Text>
         </View>
       
       }

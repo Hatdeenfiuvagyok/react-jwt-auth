@@ -1,12 +1,12 @@
 import React from 'react';
 import "../App.css";
-import {SidebarAdatok} from "./SidebarAdatok";
+import {AdatokTorleseAdatok} from "./AdatokTorleseAdatok";
 
-function Sidebar(props) {
+function AdatokTorlese(props) {
     return (
         <div className='Sidebar'>
             <ul className='SidebarList'>
-            {SidebarAdatok.map((val, key)=>{
+            {AdatokTorleseAdatok.map((val, key)=>{
                 return(
                     <li key={key}
                     className='row'
@@ -25,4 +25,4 @@ function Sidebar(props) {
     );
 }
 
-export default Sidebar;
+export default AdatokTorlese;

@@ -17,8 +17,7 @@ import BoardAdmin from "./components/board-admin.component";
 
 import Megjegyzesek from "./sajatOsztalyok/Megjegyzesek";
 
-import Gyakorlatok from "./SidebarGyakorlatok/Gyakorlatok";
-
+import Gyakorlatok from "./Gyakorlatok/Gyakorlatok";
 import Mell from "./sajatOsztalyok/Mell";
 import Bicepsz from "./sajatOsztalyok/Bicepsz";
 import Tricepsz from "./sajatOsztalyok/Tricepsz";
@@ -29,10 +28,16 @@ import Vadli from "./sajatOsztalyok/Vadli";
 import CombFar from "./sajatOsztalyok/CombFar";
 import Alkar from "./sajatOsztalyok/Alkar";
 
-import BevitelTorol from "./SidebarTorles/BevitelTorol";
-import MegjegyzesTorol from "./SidebarTorles/MegjegyzesTorol";
 
-import Sidebar from "./SidebarTorles/Sidebar";
+import BevitelTorol from "./AdminFolder/BevitelTorol";
+import MegjegyzesTorol from "./AdminFolder/MegjegyzesTorol";
+import AdatokTorlese from "./AdminFolder/AdatokTorlese";
+
+
+
+import AdatokFelvitele from "./AdatokFelvitele/AdatokFelvitele";
+import PickerMenu from "./AdatokFelvitele/PickerMenu";
+import FileUpload from "./AdatokFelvitele/FileUpload";
 
 class App extends Component {
   constructor(props) {
@@ -80,24 +85,45 @@ class App extends Component {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
+          <Nav.Link href="Megjegyzesek">Megjegyzések</Nav.Link>
+          <Nav.Link href="Gyakorlatok">Gyakorlatok</Nav.Link>
+          {showAdminBoard && (
           <NavDropdown title="Admin" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Another action
+            <NavDropdown.Item href="/AdatokTorlese">Adatok törlése</NavDropdown.Item>
+            <NavDropdown.Item href="/AdatokFelvitele">
+              Adatok felvitel
             </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <NavDropdown.Item href="/AdatModositas">
+              Adatok módosítása
+            </NavDropdown.Item>
+            
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
-              Separated link
-            </NavDropdown.Item>
           </NavDropdown>
+          )}
         </Nav>
         <Nav>
 
 
-
+        {currentUser ? (
+          <Nav className="mr-auto">
+          <Nav.Link href="/profile">
+            {currentUser.username}
+            </Nav.Link>
+            <Nav.Link href="/login" onClick={this.logOut}>
+            Kijelentkezés
+            </Nav.Link>
+            </Nav>
+          ) : (
+            
+            <Nav className="mr-auto">
+            <Nav.Link href="/login">
+            Bejelentkezés
+              </Nav.Link>
+              <Nav.Link href="/register">
+              Regisztráció
+              </Nav.Link>
+              </Nav>
+          )}
 
 
         </Nav>
@@ -110,15 +136,17 @@ class App extends Component {
 
 
 
-
-
-
-{/*Régi navbar */}
+{/*
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
             bezKoder
           </Link>
           <div className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Link to={"/home"} className="nav-link">
+                Home
+              </Link>
+            </li> 
             <li className="nav-item">
               <Link to={"/Megjegyzesek"} className="nav-link">
                 Megjegyzések
@@ -127,11 +155,6 @@ class App extends Component {
             <li className="nav-item">
               <Link to={"/Gyakorlatok"} className="nav-link">
                 Gyakorlatok
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to={"/home"} className="nav-link">
-                Home
               </Link>
             </li>
 
@@ -167,7 +190,7 @@ class App extends Component {
               </li>
               <li className="nav-item">
                 <a href="/login" className="nav-link" onClick={this.logOut}>
-                  LogOut
+                  Kijelentkezés
                 </a>
               </li>
             </div>
@@ -175,19 +198,19 @@ class App extends Component {
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to={"/login"} className="nav-link">
-                  Login
+                  Bejelentkezés
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link to={"/register"} className="nav-link">
-                  Sign Up
+                  Regisztráció
                 </Link>
               </li>
             </div>
           )}
-        </nav>
-
+          </nav>*/}
+          
         <div className="container mt-3">
           <Switch>
             <Route exact path={["/", "/home"]} component={Home} />
@@ -213,9 +236,15 @@ class App extends Component {
             <Route path="/Alkar" component={Alkar}/>
 
 
-            <Route path="/Sidebar" component={Sidebar}/>
+            <Route path="/AdatokTorlese" component={AdatokTorlese}/>
             <Route path="/BevitelTorol" component={BevitelTorol}/>
             <Route path="/MegjegyzesTorol" component={MegjegyzesTorol}/>
+
+
+            <Route path="/AdatokFelvitele" component={AdatokFelvitele}/>
+            <Route path="/PickerMenu" component={PickerMenu}/>
+            <Route path="FileUpload" component={FileUpload}/>
+
           </Switch>
         </div>
       </div>
