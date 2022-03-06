@@ -63,7 +63,7 @@ this.setState({megnyomva:m})
 
         <Image  source={{uri: 'http://localhost:8080/'+item.kepek}} style={{height:450, width:800, marginBottom:20, alignSelf:'center'}} />
           
-        <Text style={{paddingLeft:150,paddingRight:150,paddingTop:10, paddingBottom:10, fontSize: 20, textAlign:'justify', alignSelf:'center'}}>
+        <Text style={{paddingLeft:150,paddingRight:150,paddingTop:10, paddingBottom:10, fontSize: 18, textAlign:'justify', alignSelf:'center'}}>
           {item.kepek_leiras}
         </Text>
         </View>

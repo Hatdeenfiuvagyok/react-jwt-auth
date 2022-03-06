@@ -47,9 +47,9 @@ export default class Megjegyzesek extends Component {
 
           <View style={{paddingBottom: 25}}>
 
-          <Text style={{fontSize:30}}>
-          {item.kiegeszitok_nev} </Text>
           <Text style={{fontSize:20}}>
+          {item.kiegeszitok_nev} </Text>
+          <Text >
           {item.kiegeszitok_leiras} </Text>
      
           

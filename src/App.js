@@ -95,11 +95,11 @@ class App extends Component {
           <Nav.Link href="TaplalekKiegeszitok">Taplálék Kiegészítők</Nav.Link>
           {showAdminBoard && (
           <NavDropdown title="Admin" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="/AdatokTorlese">
+            <NavDropdown.Item href="/MegjegyzesTorol">
               Adatok törlése
             </NavDropdown.Item>
             <NavDropdown.Item href="/AdatokFelvitele">
-              Adatok felvitel
+              Adatok felvitele
             </NavDropdown.Item>
             
             {/*<NavDropdown.Divider />*/}

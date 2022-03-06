@@ -63,6 +63,9 @@ label {
 }
 
 */
+.bg{
+  background-image: url("crop.jpeg");
+}
 
 .App {
   padding: 0;

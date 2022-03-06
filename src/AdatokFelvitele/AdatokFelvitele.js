@@ -83,37 +83,10 @@ felvitel=async ()=>{
   render() {
     return(
         
-        <View style={{alignSelf:'center'}}>
-          
-         
+        <View style={{alignSelf:'center', backgroundColor:'#dddddd'}}>
 
-
-
-            <View style={{backgroundColor:'grey', width:'50%', alignSelf:'center'}}>
-
-            <Text style={{color:'black', alignSelf:'center'}}>
-                Gyakorlat leírása
-            </Text>
-            <TextInput
-            placeholderTextColor="#dddddd"
-            style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30, width:'70%', alignSelf:'center'}}
-            placeholder="Gyakorlat leírása"
-            onChangeText={(kepek_leiras) => this.setState({kepek_leiras})}
-            value={this.state.kepek_leiras}
-          />
-
-          
-          <Text style={{color:'black', alignSelf:'center'}}>
-            Kép
-          </Text>
-          <TextInput
-            placeholderTextColor="#dddddd"
-            style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30, width:'70%', alignSelf:'center'}}
-            placeholder="Kép neve"
-            onChangeText={(kepek) => this.setState({kepek})}
-            value={this.state.kepek}
-          />
-
+            <View style={{width:'50%', alignSelf:'center'}}>
+              
         <Picker
         selectedValue={this.state.valaszt}
         style={{ height: 50, marginBottom: 10, marginLeft: 10, marginRight: 10 }}
@@ -125,6 +98,32 @@ felvitel=async ()=>{
        
        
       </Picker>
+
+
+
+            <Text style={{color:'black', alignSelf:'center', fontSize:20}}>
+                Gyakorlat leírása
+            </Text>
+            <TextInput
+            placeholderTextColor="black"
+            style={{backgroundColor:'#dddddd', marginBottom:15, borderRadius:10, height:35, width:'70%', alignSelf:'center', paddingLeft:10}}
+            placeholder="Gyakorlat leírása"
+            onChangeText={(kepek_leiras) => this.setState({kepek_leiras})}
+            value={this.state.kepek_leiras}
+          />
+
+          
+          <Text style={{color:'black', alignSelf:'center', fontSize:20}}>
+            Kép
+          </Text>
+          <TextInput
+            placeholderTextColor="black"
+            style={{backgroundColor:'#dddddd', marginBottom:15, borderRadius:10, height:35, width:'70%', alignSelf:'center', paddingLeft:10}}
+            placeholder="Kép"
+            onChangeText={(kepek) => this.setState({kepek})}
+            value={this.state.kepek}
+          />
+
 
           <FileUpload kepek_leiras={this.state.kepek_leiras} kepek={this.state.kepek} id={this.state.valaszt}></FileUpload>
         </View>

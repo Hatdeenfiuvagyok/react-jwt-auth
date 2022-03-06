@@ -72,15 +72,9 @@ this.setState({megnyomva:m})
         renderItem={({item}) => 
         <View style={{alignSelf:'center', marginTop:10}} >
 
-        
-          <TouchableOpacity
-        onPress={()=>this.kattintas(item.kepek_id)}
-        >
-
         <Image  source={{uri: 'http://localhost:8080/'+item.kepek}} style={{height:450, width:800, marginBottom:20, alignSelf:'center'}} />
           
-        </TouchableOpacity>
-        <Text style={{paddingLeft:150,paddingRight:150,paddingTop:10, paddingBottom:10, fontSize: 20, textAlign:'justify', alignSelf:'center'}}>
+        <Text style={{paddingLeft:150,paddingRight:150,paddingTop:10, paddingBottom:10, fontSize: 18, textAlign:'justify', alignSelf:'center'}}>
           {item.kepek_leiras}
         </Text>
         

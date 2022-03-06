@@ -85,7 +85,7 @@ export default class MegjegyzesTorol extends Component {
           data={this.state.dataSource}
           renderItem={({item}) => 
 
-          <View style={{backgroundColor:'lightblue', borderRadius:15, margin:10, width:'30%', alignSelf:'center'}}>
+          <View style={{backgroundColor:'rgb(212, 212, 212)',borderBottomLeftRadius:15,borderBottomRightRadius:15, margin:10,width:'70%',alignSelf:'center'}}>
 
           <Text style={{color:"#dd00cc",fontSize:18,marginTop:5, marginLeft:10}}>
           {item.uzenet_nev} </Text>

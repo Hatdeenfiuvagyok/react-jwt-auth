@@ -75,7 +75,7 @@ export default class Megjegyzesek extends Component {
           data={this.state.dataSource}
           renderItem={({item}) => 
 
-          <View style={{backgroundColor:'rgb(212, 212, 212)',borderRadius:15, margin:10,width:'100%',alignSelf:'center', borderBottom: "6px solid rgb(40, 40, 40)"}}>
+          <View style={{backgroundColor:'rgb(212, 212, 212)',borderBottomLeftRadius:15,borderBottomRightRadius:15, margin:10,width:'100%',alignSelf:'center', borderBottom: "6px solid rgb(40, 40, 40)"}}>
 
           <Text style={{color:'darkblue',fontSize:18,marginTop:5, marginLeft:10}}>
           {item.uzenet_nev} </Text>
