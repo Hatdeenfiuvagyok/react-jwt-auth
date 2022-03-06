@@ -3,7 +3,8 @@ import { StyleSheet,Text, TextInput, View,TouchableOpacity } from 'react-native-
 
       //172.16.0.110
       //192.168.1.67
-const ipcim="192.168.1.67";
+      //172.16.0.102
+const ipcim="172.16.0.102";
 
 export default class Bevitel extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ felvitel=async ()=>{
       bevitel2:this.state.komment
     }
 
-    fetch('http://'+ipcim+':8080/kommentfelvitel',{
+    fetch('http://localhost:8080/kommentfelvitel',{
       method: "POST",
       body: JSON.stringify(bemenet),
       headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -50,7 +51,7 @@ felvitel=async ()=>{
   render() {
     return (
       <View >
-        <View style={{padding: 10, backgroundColor:'#dddddd', width:'50%', alignSelf:'center'}}>
+        <View style={{borderRadius: 20,padding: 10, backgroundColor:'#dddddd',width:'100%', alignSelf:'center', border:"3px solid black"}}>
             <Text style={{color:'black'}}>
                 Név:
             </Text>

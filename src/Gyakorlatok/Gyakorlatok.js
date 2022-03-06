@@ -11,17 +11,18 @@ function Gyakorlatok(props) {
                     <li key={key}
                     className='row'
                     onClick={()=> {
-                        window.location.pathname = val.link1;
+                        window.location.pathname = val.link;
                     }}
                     >
                         <div>
-                            {val.title1}
+                            {val.title}
                         </div>
                     </li>
                 )
             })}
             </ul>
         </div>
+        
     );
 }
 

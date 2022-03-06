@@ -1,43 +1,46 @@
 
 import React, { Component } from 'react';
 import {View, Image, FlatList, TouchableOpacity, Text, StyleSheet, TextInput, Picker  } from 'react-native-web';
-import PickerMenu from './PickerMenu';
-import FileUpload from "./FileUpload";
+import FileUpload from "./Upload";
 
       //172.16.0.110
       //192.168.1.67
-const ipcim="192.168.1.67";
+      //172.16.0.102
+const ipcim="192.16.0.102";
 
 
 
-export default class MellFelvitel extends Component {
+export default class AdatokFelvitele extends Component {
 
 
   constructor(props) {
     super(props);
     this.state = {
+      valaszt:'',
       isLoading:true,
       isCollapsed:true,
       megnyomva:[],
+      valaszt:1,
+      dataSource_izomcsoport:[],
 
       
-      kep:'',
+      kepek:'',
       id:'',
-      leiras:''
+      kepek_leiras:''
     };
   }
 
 
   componentDidMount(){
-    return fetch('http://'+ipcim+':8080/Mell')
+    return fetch('http://localhost:8080/izomcsoportok')
       .then((response) => response.json())
       .then((responseJson) => {
 
         this.setState({
           isLoading: false,
-          dataSource: responseJson,
+          dataSource_izomcsoport: responseJson,
         }, function(){
-
+          //alert(JSON.stringify(responseJson));
         });
 
       })
@@ -48,51 +51,16 @@ export default class MellFelvitel extends Component {
 
 
 
-  
-  kivalaszt=async (szam)=>{
-    //alert(szam)
-    this.setState({akttema:szam})
-
-    let bemenet={
-      bevitel4:szam
-    }
-    return fetch('http://192.168.20.102:3000/temalekerdez',{
-      method: "POST",
-      body: JSON.stringify(bemenet),
-      headers: {"Content-type": "application/json; charset=UTF-8"}
-    }
-       
-    )
-    .then((response) => response.json())
-    .then((responseJson) => {
-
-      this.setState({
-        isLoading: false,
-        dataSource2: responseJson,
-      }, function(){
-
-        //alert(JSON.stringify(this.state.dataSource2))
-      });
-
-    })
-    .catch((error) =>{
-      console.error(error);
-    });
-
-  }
-
-
 
 
 
 felvitel=async ()=>{
     //alert("megnyomva a gomb")
-
     
     let bemenet={
-      bevitel1:this.state.nev,
-      bevitel2:this.state.komment,
-      bevitel3:this.state.leiras
+      bevitel3:this.state.kepek_leiras,
+      bevitel1:this.state.kepek,
+      bevitel2:this.state.valaszt
     }
 
     fetch('http://'+ipcim+':8080/adat_felvitel',{
@@ -113,34 +81,52 @@ felvitel=async ()=>{
 
   
   render() {
-    <FileUpload></FileUpload>
     return(
         
         <View style={{alignSelf:'center'}}>
+          
+         
 
-          <PickerMenu/>
 
 
             <View style={{backgroundColor:'grey', width:'50%', alignSelf:'center'}}>
+
             <Text style={{color:'black', alignSelf:'center'}}>
-                Kép
-            </Text>
-          <Text style={{color:'black', alignSelf:'center'}}>
                 Gyakorlat leírása
             </Text>
             <TextInput
             placeholderTextColor="#dddddd"
-            style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30, width:'50%', alignSelf:'center'}}
+            style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30, width:'70%', alignSelf:'center'}}
             placeholder="Gyakorlat leírása"
-            onChangeText={(leiras) => this.setState({leiras})}
-            value={this.state.leiras}
+            onChangeText={(kepek_leiras) => this.setState({kepek_leiras})}
+            value={this.state.kepek_leiras}
           />
-           <TouchableOpacity
-            onPress={async ()=>this.felvitel()}>
-            <View style={styles.gomb}>
-              <Text style={styles.gombSzoveg}>Adatok Felvitele</Text>
-            </View>
-          </TouchableOpacity> 
+
+          
+          <Text style={{color:'black', alignSelf:'center'}}>
+            Kép
+          </Text>
+          <TextInput
+            placeholderTextColor="#dddddd"
+            style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:30, width:'70%', alignSelf:'center'}}
+            placeholder="Kép neve"
+            onChangeText={(kepek) => this.setState({kepek})}
+            value={this.state.kepek}
+          />
+
+        <Picker
+        selectedValue={this.state.valaszt}
+        style={{ height: 50, marginBottom: 10, marginLeft: 10, marginRight: 10 }}
+        onValueChange={(itemValue, itemIndex) => this.setState({valaszt:itemValue})}
+        >
+        {this.state.dataSource_izomcsoport.map((item) => (
+          <Picker.Item key={item.izomcsoport_id} label={item.izomcsoport_nev} value={item.izomcsoport_id} />
+        ))}
+       
+       
+      </Picker>
+
+          <FileUpload kepek_leiras={this.state.kepek_leiras} kepek={this.state.kepek} id={this.state.valaszt}></FileUpload>
         </View>
       
     </View>

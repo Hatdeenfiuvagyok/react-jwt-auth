@@ -3,40 +3,44 @@ import "../App.css";
 
 export const  GyakorlatAdatok = [
     {
-        title1:"Mell",
-        link1:"/Mell"
+    title:"GYIK",
+    link:"/GYIK"
     },
     {
-        title1:"Bicepsz",
-        link1:"/Bicepsz"
+        title:"Mell",
+        link:"/Mell"
     },
     {
-        title1:"Tricepsz",
-        link1:"/Tricepsz"
+        title:"Bicepsz",
+        link:"/Bicepsz"
     },
     {
-        title1:"Váll",
-        link1:"/Vall"
+        title:"Tricepsz",
+        link:"/Tricepsz"
     },
     {
-        title1:"Hát",
-        link1:"/Hat"
+        title:"Váll",
+        link:"/Vall"
     },
     {
-        title1:"HasTörzs",
-        link1:"/HasTorzs"
+        title:"Hát",
+        link:"/Hat"
     },
     {
-        title1:"Vádli",
-        link1:"/Vadli"
+        title:"Has/Törzs",
+        link:"/HasTorzs"
     },
     {
-        title1:"CombFar",
-        link1:"/CombFar"
+        title:"Vádli",
+        link:"/Vadli"
     },
     {
-        title1:"Alkar",
-        link1:"/Alkar"
+        title:"Comb/Far",
+        link:"/CombFar"
+    },
+    {
+        title:"Alkar",
+        link:"/Alkar"
     },
 
 ]

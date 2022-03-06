@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import {View, Image, FlatList, TouchableOpacity, Text  } from 'react-native-web';
-import Gyakorlatok from '../Gyakorlatok/Gyakorlatok';
+import Sidebar from './AdatokTorlese';
 
       //172.16.0.110
       //192.168.1.67
-const ipcim="192.168.1.67";
+      //172.16.0.102
+const ipcim="172.16.0.102";
 
-export default class Mell extends Component {
+export default class CombFarTorol extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +19,7 @@ export default class Mell extends Component {
 
 
   componentDidMount(){
-    return fetch('http://'+ipcim+':8080/Mell')
+    return fetch('http://localhost:8080/CombFar')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -43,12 +44,22 @@ this.setState({megnyomva:m})
       });
   }
 
+  torles=(szam)=>{
+    //alert(szam)
+    var bemenet={
+      bevitel1:szam
+    }
+
+  fetch('http://localhost:8080/adat_torles_combfar', {
+      method: "POST",
+      body: JSON.stringify(bemenet),
+      headers: {"Content-type": "application/json; charset=UTF-8"}
+    }
   
-  kattintas=(sorszam)=>{
-    //alert(sorszam)
-    let m=this.state.megnyomva
-    m[sorszam]=!m[sorszam]
-    this.setState({megnyomva:m})
+  )
+  .then(x => x.text())
+  .then(y => alert(y));
+
   }
 
   render() {
@@ -66,21 +77,34 @@ this.setState({megnyomva:m})
         onPress={()=>this.kattintas(item.kepek_id)}
         >
 
-        <Image  source={{uri: 'http://'+ipcim+':8080/'+item.kepek}} style={{height:300, width:400, marginBottom:20, alignSelf:'center'}} />
+        <Image  source={{uri: 'http://localhost:8080/'+item.kepek}} style={{height:450, width:800, marginBottom:20, alignSelf:'center'}} />
           
         </TouchableOpacity>
         <Text style={{paddingLeft:150,paddingRight:150,paddingTop:10, paddingBottom:10, fontSize: 20, textAlign:'justify', alignSelf:'center'}}>
           {item.kepek_leiras}
         </Text>
+        
+      <TouchableOpacity
+        onPress={async ()=>this.torles(item.kepek_id)}
+      >
+        <Text style={{paddingLeft:380,paddingRight:390,paddingTop:10, paddingBottom:10, fontSize: 15, textAlign:'justify', alignSelf:'center', color:"black",backgroundColor:'red',borderBottomLeftRadius:10,borderBottomRightRadius:10,fontWeight:"bold", textAlign:'center'}}>
+            Törlés
+        </Text>
+      </TouchableOpacity>
+
         </View>
+        
       
       }
         keyExtractor={({izomcsoport_id}, index) => izomcsoport_id}
+        
       />
 
 
-      <Gyakorlatok/>
+      <Sidebar/>
+      
     </View>
+    
     );
   }
 }

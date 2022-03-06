@@ -31,7 +31,6 @@ label {
   border-radius: 50%;
 }
 
-
 /*
 .header {
   width: 100%;
@@ -55,7 +54,7 @@ label {
   padding-top: 5px;
   display: block;
   /*background-color: #7a4195;*/
-  /*text-decoration: none;
+/*text-decoration: none;
   color: white;
 }
 
@@ -65,48 +64,52 @@ label {
 
 */
 
-
-
-
-.App{
+.App {
   padding: 0;
   margin: 0;
   height: 100vh;
 }
 
 body {
-  margin:0;
+  margin: 0;
   padding: 0;
   background-color: black;
 }
 
-.Sidebar{
-  border-right:1px solid black;
+.Sidebar {
+  border-right: 1px solid black;
   height: auto;
-  width: 200px; 
+  width: 200px;
   position: fixed;
   overflow-x: hidden;
   margin-left: -75px;
 }
 
-.SidebarList{
+.SidebarList {
   text-align: left;
-  height:auto;
-  width: 100%;;
+  height: auto;
+  width: 100%;
 }
 
-.SidebarList .row{
-  list-style-type:none;
-  float:left;
-  padding-right:100%;
+.SidebarList .row {
+  list-style-type: none;
+  float: left;
+  padding-right: 100%;
   padding-bottom: 10px;
   font-size: 20px;
-  color:black;
-  border:none;
-  cursor:pointer;
+  color: black;
+  border: none;
+  cursor: pointer;
 }
 
-.SidebarList .row:hover{
-color:red;
-cursor: pointer;
+.SidebarList .row:hover {
+  color: red;
+  cursor: pointer;
 }
+
+
+.gyik {
+  margin-left: 10em;
+  margin-right: 2em;
+}
+

@@ -15,29 +15,40 @@ import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
 
-import Megjegyzesek from "./sajatOsztalyok/Megjegyzesek";
+import Megjegyzesek from "./Forum/Megjegyzesek";
 
 import Gyakorlatok from "./Gyakorlatok/Gyakorlatok";
-import Mell from "./sajatOsztalyok/Mell";
-import Bicepsz from "./sajatOsztalyok/Bicepsz";
-import Tricepsz from "./sajatOsztalyok/Tricepsz";
-import Vall from "./sajatOsztalyok/Vall";
-import Hat from "./sajatOsztalyok/Hat";
-import HasTorzs from "./sajatOsztalyok/HasTorzs";
-import Vadli from "./sajatOsztalyok/Vadli";
-import CombFar from "./sajatOsztalyok/CombFar";
-import Alkar from "./sajatOsztalyok/Alkar";
+import Mell from "./Gyakorlatok/Mell";
+import Bicepsz from "./Gyakorlatok/Bicepsz";
+import Tricepsz from "./Gyakorlatok/Tricepsz";
+import Vall from "./Gyakorlatok/Vall";
+import Hat from "./Gyakorlatok/Hat";
+import HasTorzs from "./Gyakorlatok/HasTorzs";
+import Vadli from "./Gyakorlatok/Vadli";
+import CombFar from "./Gyakorlatok/CombFar";
+import Alkar from "./Gyakorlatok/Alkar";
+import GYIK from "./Gyakorlatok/GYIK";
 
 
-import BevitelTorol from "./AdminFolder/BevitelTorol";
-import MegjegyzesTorol from "./AdminFolder/MegjegyzesTorol";
-import AdatokTorlese from "./AdminFolder/AdatokTorlese";
+import MegjegyzesTorol from "./AdatokTorlese/MegjegyzesTorol";
+import MellTorol from "./AdatokTorlese/MellTorol";
+import BicepszTorol from "./AdatokTorlese/BicepszTorol";
+import TricepszTorol from "./AdatokTorlese/TricepszTorol";
+import VallTorol from "./AdatokTorlese/VallTorol";
+import HatTorol from "./AdatokTorlese/HatTorol";
+import HasTorzsTorol from "./AdatokTorlese/HasTorzsTorol";
+import VadliTorol from "./AdatokTorlese/VadliTorol";
+import CombFarTorol from "./AdatokTorlese/CombFarTorol";
+import AlkarTorol from "./AdatokTorlese/AlkarTorol";
+import AdatokTorlese from "./AdatokTorlese/AdatokTorlese";
+
+
+import TaplalekKiegeszitok from "./Forum/TaplalekKiegeszitok";
 
 
 
 import AdatokFelvitele from "./AdatokFelvitele/AdatokFelvitele";
-import PickerMenu from "./AdatokFelvitele/PickerMenu";
-import FileUpload from "./AdatokFelvitele/FileUpload";
+import Upload from "./AdatokFelvitele/Upload";
 
 class App extends Component {
   constructor(props) {
@@ -72,32 +83,26 @@ class App extends Component {
 
     return (
       <div>
-
-
-
-
-
-
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">
-        Dice Roller
-      </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
+          <Link to={"/"} className="navbar-brand">
+            Főoldal
+          </Link>
           <Nav.Link href="Megjegyzesek">Megjegyzések</Nav.Link>
-          <Nav.Link href="Gyakorlatok">Gyakorlatok</Nav.Link>
+          <Nav.Link href="GYIK">Gyakorlatok</Nav.Link>
+          <Nav.Link href="TaplalekKiegeszitok">Taplálék Kiegészítők</Nav.Link>
           {showAdminBoard && (
           <NavDropdown title="Admin" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="/AdatokTorlese">Adatok törlése</NavDropdown.Item>
+            <NavDropdown.Item href="/AdatokTorlese">
+              Adatok törlése
+            </NavDropdown.Item>
             <NavDropdown.Item href="/AdatokFelvitele">
               Adatok felvitel
             </NavDropdown.Item>
-            <NavDropdown.Item href="/AdatModositas">
-              Adatok módosítása
-            </NavDropdown.Item>
             
-            <NavDropdown.Divider />
+            {/*<NavDropdown.Divider />*/}
           </NavDropdown>
           )}
         </Nav>
@@ -234,16 +239,28 @@ class App extends Component {
             <Route path="/Vadli" component={Vadli}/>
             <Route path="/CombFar" component={CombFar}/>
             <Route path="/Alkar" component={Alkar}/>
+            <Route path="/GYIK" component={GYIK}/>
 
 
             <Route path="/AdatokTorlese" component={AdatokTorlese}/>
-            <Route path="/BevitelTorol" component={BevitelTorol}/>
             <Route path="/MegjegyzesTorol" component={MegjegyzesTorol}/>
+            <Route path="/MellTorol" component={MellTorol}/>
+            <Route path="/BicepszTorol" component={BicepszTorol}/>
+            <Route path="/TricepszTorol" component={TricepszTorol}/>
+            <Route path="/VallTorol" component={VallTorol}/>
+            <Route path="/HatTorol" component={HatTorol}/>
+            <Route path="/HasTorzsTorol" component={HasTorzsTorol}/>
+            <Route path="/VadliTorol" component={VadliTorol}/>
+            <Route path="/CombFarTorol" component={CombFarTorol}/>
+            <Route path="/AlkarTorol" component={AlkarTorol}/>
+
+            
+            <Route path="/TaplalekKiegeszitok" component={TaplalekKiegeszitok}/>
 
 
             <Route path="/AdatokFelvitele" component={AdatokFelvitele}/>
-            <Route path="/PickerMenu" component={PickerMenu}/>
-            <Route path="FileUpload" component={FileUpload}/>
+            <Route path="/Upload" component={Upload}/>
+            
 
           </Switch>
         </div>
