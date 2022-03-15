@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet,Text, TextInput, View,TouchableOpacity, FlatList, RefreshControl  } from 'react-native-web';
 import Sidebar from './AdatokTorlese';
 
-      //172.16.0.110
-      //172.16.0.102
-const ipcim="192.16.0.102";
-
 export default class MegjegyzesTorol extends Component {
   constructor(props) {
     super(props);
@@ -32,9 +28,6 @@ export default class MegjegyzesTorol extends Component {
       });
 
   }
-
-
-
 
   ujratoltes=()=>{
     //alert(szam)
@@ -73,9 +66,6 @@ export default class MegjegyzesTorol extends Component {
   .then(y => alert(y));
 
   }
-
-
-
  
   render() {
     return (
@@ -102,15 +92,8 @@ export default class MegjegyzesTorol extends Component {
             Törlés
         </Text>
       </TouchableOpacity>
-
-
-          </View>
-
-
-
-        
+          </View>  
         }
-    
           keyExtractor={({uzenet_id}, index) => uzenet_id}
         />
         <Sidebar/>

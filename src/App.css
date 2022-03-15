@@ -116,3 +116,11 @@ body {
   margin-right: 2em;
 }
 
+.bg {
+  background-image: url("./pexels-anush-gorak-1229356.jpg");
+  height: 90vh;
+  width: 70vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

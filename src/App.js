@@ -14,6 +14,7 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
+import BackgroundImagePage from "./components/BackgroundImagePage";
 
 import Megjegyzesek from "./Forum/Megjegyzesek";
 
@@ -260,6 +261,7 @@ class App extends Component {
 
             <Route path="/AdatokFelvitele" component={AdatokFelvitele}/>
             <Route path="/Upload" component={Upload}/>
+            <Route path="/BackgroundImagePage" component={BackgroundImagePage}/>
             
 
           </Switch>

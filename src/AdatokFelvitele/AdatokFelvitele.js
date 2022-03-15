@@ -3,13 +3,6 @@ import React, { Component } from 'react';
 import {View, Image, FlatList, TouchableOpacity, Text, StyleSheet, TextInput, Picker  } from 'react-native-web';
 import FileUpload from "./Upload";
 
-      //172.16.0.110
-      //192.168.1.67
-      //172.16.0.102
-const ipcim="192.16.0.102";
-
-
-
 export default class AdatokFelvitele extends Component {
 
 
@@ -49,11 +42,6 @@ export default class AdatokFelvitele extends Component {
       });
   }
 
-
-
-
-
-
 felvitel=async ()=>{
     //alert("megnyomva a gomb")
     
@@ -63,7 +51,7 @@ felvitel=async ()=>{
       bevitel2:this.state.valaszt
     }
 
-    fetch('http://'+ipcim+':8080/adat_felvitel',{
+    fetch('http://localhost:8080/adat_felvitel',{
       method: "POST",
       body: JSON.stringify(bemenet),
       headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -78,8 +66,6 @@ felvitel=async ()=>{
 })
     
 }
-
-  
   render() {
     return(
         
@@ -95,18 +81,14 @@ felvitel=async ()=>{
         {this.state.dataSource_izomcsoport.map((item) => (
           <Picker.Item key={item.izomcsoport_id} label={item.izomcsoport_nev} value={item.izomcsoport_id} />
         ))}
-       
-       
       </Picker>
-
-
 
             <Text style={{color:'black', alignSelf:'center', fontSize:20}}>
                 Gyakorlat leírása
             </Text>
             <TextInput
             placeholderTextColor="black"
-            style={{backgroundColor:'#dddddd', marginBottom:15, borderRadius:10, height:35, width:'70%', alignSelf:'center', paddingLeft:10}}
+            style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:35, width:'70%', alignSelf:'center', paddingLeft:10}}
             placeholder="Gyakorlat leírása"
             onChangeText={(kepek_leiras) => this.setState({kepek_leiras})}
             value={this.state.kepek_leiras}
@@ -118,7 +100,7 @@ felvitel=async ()=>{
           </Text>
           <TextInput
             placeholderTextColor="black"
-            style={{backgroundColor:'#dddddd', marginBottom:15, borderRadius:10, height:35, width:'70%', alignSelf:'center', paddingLeft:10}}
+            style={{backgroundColor:'white', marginBottom:15, borderRadius:10, height:35, width:'70%', alignSelf:'center', paddingLeft:10}}
             placeholder="Kép"
             onChangeText={(kepek) => this.setState({kepek})}
             value={this.state.kepek}

@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import {View, Image, FlatList, TouchableOpacity, Text  } from 'react-native-web';
 import Sidebar from './AdatokTorlese';
 
-      //172.16.0.110
-      //192.168.1.67
-      //172.16.0.102
-const ipcim="172.16.0.102";
-
 export default class VadliTorol extends Component {
   constructor(props) {
     super(props);
