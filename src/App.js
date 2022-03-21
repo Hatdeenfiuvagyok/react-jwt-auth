@@ -89,7 +89,7 @@ class App extends Component {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
           <Link to={"/"} className="navbar-brand">
-            Főoldal
+            Fitness & Sport
           </Link>
           <Nav.Link href="Megjegyzesek">Megjegyzések</Nav.Link>
           <Nav.Link href="GYIK">Gyakorlatok</Nav.Link>

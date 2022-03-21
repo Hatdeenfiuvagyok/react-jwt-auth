@@ -28,7 +28,6 @@ function FileUpload(props) {
                 formData
             );
             console.log(res);
-            
    
             let bemenet={
                 bevitel3:props.kepek_leiras,

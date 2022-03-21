@@ -73,12 +73,6 @@ label {
   height: 100vh;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: black;
-}
-
 .Sidebar {
   border-right: 1px solid black;
   height: auto;
@@ -123,4 +117,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+body {
+  background-color: black;
 }
